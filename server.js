@@ -24,9 +24,17 @@ app.get('/question/:query', async (req, res) => {
             params: { prompt: query }
         });
 
-        res.json(response.data);
+        res.json({
+            owner: "Mueid Mursalin Rifat",
+            question: query,
+            response: response.data
+        });
     } catch (error) {
-        res.status(500).json({ error: 'API request failed', details: error.message });
+        res.status(500).json({ 
+            owner: "Mueid Mursalin Rifat",
+            error: 'API request failed', 
+            details: error.message 
+        });
     }
 });
 
